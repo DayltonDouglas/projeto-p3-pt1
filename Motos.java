@@ -1,12 +1,12 @@
 
 class Motos {
 	private String cor;
-	private Modelo modelo;
-	private Preco preco;
+	private ModeloMoto modelo;
+	private PrecoMoto preco;
 	private Capacete capacete;
 	
 	
-	public enum Modelo{
+	public enum ModeloMoto{
         //Enum sobre o modelo de cada moto a ser locada.
 		Modelo_150FAN("Fan 150 - Honda"),
 		Modelo_250FAZER("Fazer250 - Yamaha"),
@@ -15,17 +15,17 @@ class Motos {
 		Modelo_300XRE("XRE 300 - Honda"),
 		Modelo_150FACTOR("Factor 150 - Yamaha");
 		
-		private final String modelo;
+		private final String modeloMoto;
 		
-		Modelo(String modelo){
-			this.modelo= modelo;
+		ModeloMoto(String modeloMoto){
+			this.modeloMoto= modeloMoto;
 		}
-		String getModelo() {
-			return this.modelo;
+		String getModeloMoto() {
+			return this.modeloMoto;
 		}
 	}
-	public enum Preco{
-		//Preços sobre cada modelo de moto.
+	public enum PrecoMoto{
+		//Preï¿½os sobre cada modelo de moto.
 		PRECO_150FAN(200),
 		PRECO_250FAZER(600),
 		PRECO_160TITAN(300),
@@ -33,17 +33,17 @@ class Motos {
 		PRECO_300XRE(700),
 		PRECO_150FACTOR(210);
 		
-		private final double preco;
+		private final double precoMoto;
 		
-		Preco (double preco){
-			this.preco = preco;
+		PrecoMoto (double precoMoto){
+			this.precoMoto = precoMoto;
 		}
-		double getPreco() {
-			return this.preco;
+		double getPrecoMoto() {
+			return this.precoMoto;
 		}
 	}
 	public enum Capacete{
-		//Preços de capacetes a serem locados pelo cliente.
+		//Preï¿½os de capacetes a serem locados pelo cliente.
 		CAPACETE_ESPORTIVO(80),
 		CAPACETE_CASUAL(40);
 		
@@ -56,8 +56,8 @@ class Motos {
 			return this.capacete;
 		}
 	}
-	public Motos(Modelo modelo) {
-		this.modelo = modelo;
+	public Motos(ModeloMoto modeloMoto) {
+		this.modeloMoto = modeloMoto;
 	}
 	public void setCor(String cor) {
 		this.cor = cor;
@@ -65,8 +65,8 @@ class Motos {
 	public String getCor() {
 		return this.cor;
 	}
-	//Demonstração de toda a string.
+	//Demonstraï¿½ï¿½o de toda a string.
 	public String toString() {
-		return this.modelo + " " + this.cor + " " + this.preco + " " + this.capacete + " ";
+		return this.modeloMoto + " " + this.cor + " " + this.precoMoto + " " + this.capacete + " ";
 	}
 }

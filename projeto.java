@@ -9,6 +9,9 @@ import java.util.Scanner;
 import projeto.p3.Carro.Modelo;
 import projeto.p3.Carro.Preco;
 import projeto.p3.CadastroCliente;
+import projeto.p3.Motos.Modelo;
+import projeto.p3.Motos.Preco;
+import projeto.p3.Motos.Capacete;
 
 public class projeto {
 
@@ -20,9 +23,12 @@ public class projeto {
     Locadora loc = new Locadora();
     Modelo [] m = Modelo.values();
     Preco[]p = Carro.Preco.values();
-    int Menu, idade = 0, opção;
-    String nome, cpf, carro;
-    double valor, preco;
+    ModeloMoto [] mm = Motos.Preco.values();
+    PrecoMoto[] pm = Motos.Preco.values();
+    PrecoCap[] pc = Motos.Capacete.values();
+    int Menu, idade = 0, opcao;
+    String nome, cpf, carro, moto;
+    double valor, preco, precomoto, precocap;
     Cliente c;
     do {
       System.out.println("OPÇÕES");
@@ -50,19 +56,34 @@ public class projeto {
             break;
         }
       case 2:
-          System.out.println("Essa é a lista de carros");
+          System.out.println("Essa é a lista de carros: ");
           loc.exibModelo(m);
+          System.out.println("Essa é a lista de motos: ");
+          loc.exibModeloMoto(mm);
           break;
       case 3: // ALUGAR UM VEICULO
-        System.out.println("Tabela de modelos e preços");
+        System.out.println("Tabela de modelos e preços, escolha uma das opções: ");
         loc.exibModPre(m, p);
-        System.out.println("Digite o modelo desejado");
-        carro = in.next();
-        System.out.println("Digite o valor");
-        preco = in.nextDouble();
-        loc.alugarCarro(carro, m, p, preco);
-        System.out.print("Obrigado carro locado com sucesso! \n Valido por 1 mês! ");
-        break;
+        loc.exibModPreMoto(mm, pm, pc);
+        opcao = in.nextLine();
+        if(opcao == "Carro" || opcao == "carro" ){
+          System.out.println("Digite o modelo desejado");
+          carro = in.next();
+          System.out.println("Digite o valor");
+          preco = in.nextDouble();
+          loc.alugarCarro(carro, m, p, preco);
+          System.out.print("Obrigado carro locado com sucesso! \n Valido por 1 mês! ");
+          break;
+        }else if(opcao == "Moto" || opcao == "moto"){
+          System.out.println("Digite a moto desejada: ");
+          moto = in.next()
+          System.out.println("Digite o valor a ser pago pela moto: ");
+          precomoto = in.nextDouble();     
+          System.out.println("Digite qual o capacete a ser usado: ");
+          precocap = in.nextDouble();
+          loc.alugaMoto(moto,mm,pm,pc,precomoto,precocap);
+          System.out.print("Obrigado moto locada com sucesso! \n Valida por 1 mês! ");
+     }
       case 4: // DEVOLVER UM VEÍCULO
         System.out.println("Por favor digite Seu cadastro");
 
